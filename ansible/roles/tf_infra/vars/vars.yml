@@ -1,0 +1,2 @@
+# tf_state: present   # present / absent / planned 
+# tf_plan_file: poc-tf-full.out

@@ -1,0 +1,27 @@
+---
+version: 0.2
+
+phases: 
+  pre_build: 
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+  build: 
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - ls -la
+      - docker build -t ${IMAGE_URI} . 
+  post_build: 
+    commands:
+      - docker push ${IMAGE_URI}:latest
+      - echo Writing image definitions file...
+      - printf '[{"name":"%s", "imageUri":"%s"}]' $SERVICE_NAME $IMAGE_URI:$TAG > $IMAGE_DEFINITIONS
+artifacts:
+  files: 
+    - $IMAGE_DEFINITIONS
+  base-directory: ./
+  discard-paths: yes
+...
+

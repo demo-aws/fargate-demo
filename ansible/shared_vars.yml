@@ -1,0 +1,10 @@
+# aws_access_key: "AKIAIQAKDUXZMRVFHPUQ"
+# aws_secret_key: "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"
+
+gitlab_api: http://gitdev.net.com.br/api
+gitlab_token: iBxCX7TyxcLr4EJf7koL
+gitlab_project_id: "1028"
+gitlab_ssh_host: netcode.netapp.ws
+
+git_repo: git@gitdev.net.com.br:ecare-new/Minha-NET-Atendimento.git
+git_branch: master

@@ -1,0 +1,22 @@
+---
+
+- name: Run terraform to create or destroy infra 
+  terraform:
+    project_path: "{{ tf_api_path }}"
+    state: "{{ tf_state }}"
+    #plan_file: "../{{ tf_plan_file }}"
+    #force_init: true
+    variables_file: "{{ tf_variables_file_path }}"
+    workspace: "{{ service_name }}"
+    #state_file: "terraform/{{ tf_state_file }}"
+    backend_config: 
+      region: "{{ aws_region }}"
+      bucket: "{{ tf_state_bucket }}"
+      key: "{{ tf_state_bucket_key }}"
+      profile: "{{ aws_local_profile }}"
+      dynamodb_table: "{{ aws_tf_lock_dynamodb_table }}"
+      workspace_key_prefix: "{{ env }}"
+  register: tf_run
+- debug: var=tf_run.stdout_lines
+
+...

@@ -1,0 +1,28 @@
+---
+
+- name: Include environment static vars
+  include_vars: ../../../inventories/{{ env }}/{{ env }}.yml
+
+- name: Create artifact s3 bucket
+  aws_s3: 
+    bucket: "{{ aws_s3_bucket_name }}"
+    mode: create
+    region: "{{ aws_s3_bucket_region }}"
+    profile: "{{ aws_local_profile }}"
+
+- name: Delete artifacts from the bucket
+  aws_s3:
+    bucket: "{{ aws_s3_bucket_name }}"
+    object: "{{ artifact_name }}"
+    mode: delobj
+    profile: "{{ aws_local_profile }}"
+
+- name: Send zip file to bucket s3
+  aws_s3:
+    bucket: "{{ aws_s3_bucket_name }}"
+    object: "{{ artifact_name }}"
+    src: "{{ aws_s3_artifact_path }}/{{ artifact_name }}" 
+    mode: put
+    region: "{{ aws_s3_bucket_region }}"
+    profile: "{{ aws_local_profile }}"
+... 

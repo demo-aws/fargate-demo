@@ -1,0 +1,30 @@
+project_name: web-ecare-ctv
+service_name: atendimento
+# ssh keys pub and priv names and path to be created
+ssh_pub_key: ~/.ssh/{{ project_name }}.pub
+ssh_priv_key: ~/.ssh/{{ project_name }}
+# Zip file name (we are using artifacts.zip as stantard name, if changed we will need to check other parts of code, might break something)
+artifact_name: "{{ env }}-{{ project_name }}-{{ service_name}}.zip"
+# Path where the code will be downloaded
+source_code_path: ~/{{ env }}-{{ project_name }}
+
+## TF_INFRA ROLE VARS
+tf_state: present  # present / absent / planned 
+tf_state_bucket: claro-terraform-tfstate-storage-web-ctv-ecare
+tf_state_bucket_key: dev.tfstate
+tf_api_path: 
+tf_variables_file_path: 
+
+gitlab_api: http://gitdev.net.com.br/api
+gitlab_token: iBxCX7TyxcLr4EJf7koL
+gitlab_project_id: "342"
+gitlab_ssh_host: gitdev.net.com.br
+git_repo: git@gitdev.net.com.br:ecare-clarotv/ecareclarotv.git
+git_branch: CLAROTV-1687
+
+aws_region: us-east-1
+aws_local_profile: ecare-dev
+aws_tf_lock_dynamodb_table: terraform-state-lock
+aws_s3_bucket_name: claro-artifact-store-web-ctv-ecare-dev
+aws_s3_bucket_region: "{{ aws_region }}"
+aws_s3_artifact_path: /home/ubuntu

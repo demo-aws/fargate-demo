@@ -1,0 +1,20 @@
+# # Change only if the gitlab hostname changes 
+# gitlab_api: http://gitdev.net.com.br/api    
+# # Impersonation toke (rafael.miazaki) to deploy the ssh key
+# gitlab_token: iBxCX7TyxcLr4EJf7koL
+# # Gitlab ID or project name
+# gitlab_project_id: "824"
+# # Host used to use ssh port (22) on gitlab 
+# gitlab_ssh_host: netcode.netapp.ws
+# # Repo for the project to checkout the code
+# git_repo: git@netcode.netapp.ws:thiago.bortoletto/ecare-mytechnician-api.git
+# git_branch: codebuild_buildspec
+
+# project_name: poc-tf-java
+# # ssh keys pub and priv names and path to be created
+# ssh_pub_key: ~/.ssh/{{ project_name }}.pub
+# ssh_priv_key: ~/.ssh/{{ project_name }}
+# # Zip file name (we are using artifacts.zip as stantard name, if changed we will need to check other parts of code, might break something)
+# artifact_name: artifacts.zip
+# # Path where the code will be downloaded
+# source_code_path: ~/{{ project_name }}

@@ -1,0 +1,15 @@
+tfstate_bucket_name = "aws-demo-tfstate"
+artifact_bucket_name = "claro-artifact-store-aws-demo"
+aws_local_profile = "dev-ongoing"
+aws_region = "us-east-1"
+tags = {
+  ambiente        = "dev"
+  torre           = "digital"
+  marca           = "multimarca"
+  centro-de-custo = "x"
+  projeto         = "aws-demo"
+  servico         = "aws-demo"
+  conta           = "dev-ongoing"
+  plataforma      = "aws"
+  produto         = "demo"
+}
