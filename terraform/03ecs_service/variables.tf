@@ -24,3 +24,5 @@ variable "aws_local_profile" {}
 variable "github_repo" {}
 variable "github_token" {}
 variable "domain" {}
+variable "zone_id" {}
+

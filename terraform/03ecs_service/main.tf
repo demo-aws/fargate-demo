@@ -74,4 +74,7 @@ module "ecs_service_node" {
   github_repo = "${var.github_repo}"
   github_token    = "${var.github_token}"
   domain          = "${var.domain}"
+  zone_id         = "${var.zone_id}"
+
+  alb_dns_name    = "${data.terraform_remote_state.ecs_cluster.ecs_cluster_alb_dns_name}"
 }

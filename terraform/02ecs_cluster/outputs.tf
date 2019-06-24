@@ -33,3 +33,6 @@ output "alb_target_group_arn_suffix" {
 output "ecs_cluster_sg_id" {
   value = "${module.ecs_cluster.ecs_cluster_sg_id}"
 }
+output "ecs_cluster_alb_dns_name" {
+  value = "${module.ecs_cluster.ecs_cluster_alb_dns_name}"
+}
