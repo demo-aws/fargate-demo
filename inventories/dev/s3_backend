@@ -1,6 +1,6 @@
-bucket = "aws-demo-tfstate"
+bucket = "aws-demo-tfstate-bucket"
 region = "us-east-1"
 key = "dev.tfstate"
-profile = "dev-ongoing"
+profile = "aws-demo"
 dynamodb_table = "terraform-state-lock"
 workspace_key_prefix = "dev"

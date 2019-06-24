@@ -15,7 +15,7 @@ data "terraform_remote_state" "network" {
   backend = "s3"
 
   config = {
-    bucket = "aws-demo-tfstate"
+    bucket = "aws-demo-tfstate-bucket"
     key    = "${var.env}/network/${var.env}.tfstate"
     region = "${var.aws_region}"
   }
@@ -26,7 +26,7 @@ data "terraform_remote_state" "ecs_cluster" {
   backend = "s3"
 
   config = {
-    bucket = "aws-demo-tfstate"
+    bucket = "aws-demo-tfstate-bucket"
     key    = "${var.env}/ecs_cluster/${var.env}.tfstate"
     region = "${var.aws_region}"
   }
@@ -70,4 +70,8 @@ module "ecs_service_node" {
   listener_arn = "${data.terraform_remote_state.ecs_cluster.alb_listener_arn}"
   cluster_arn  = "${data.terraform_remote_state.ecs_cluster.ecs_cluster_arn}"
   cluster_name = "${data.terraform_remote_state.ecs_cluster.ecs_cluster_name}"
+
+  ssh_github_repo = "${var.ssh_github_repo}"
+  github_token    = "${var.github_token}"
+  domain          = "${var.domain}"
 }

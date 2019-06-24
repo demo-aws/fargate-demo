@@ -11,7 +11,7 @@ command = "npm start"
 # Get after network infra created
 aws_region = "us-east-1"
 aws_account_id = "578658211177"
-artifact_store = "claro-artifact-store-aws-demo"
+artifact_store = "claro-artifact-store-aws-demo-bucket"
 artifact_name = "dev-aws-demo-node.zip"
 tags = {
   ambiente        = "dev"
@@ -35,4 +35,8 @@ container_max_capacity = "2"
 node_path = "/app"
 
 # backend config
-aws_local_profile = "dev-ongoing"
+aws_local_profile = "aws-demo"
+
+github_token = "3f3c9f1a04b36dc46f2f14a5f0e17f421dae7ffb"
+ssh_github_repo = "https://github.com/demo-aws/fargate-demo.git"
+domain = "darwinizando.com.br"

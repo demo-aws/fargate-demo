@@ -1,6 +1,6 @@
-tfstate_bucket_name = "aws-demo-tfstate"
-artifact_bucket_name = "claro-artifact-store-aws-demo"
-aws_local_profile = "dev-ongoing"
+tfstate_bucket_name = "aws-demo-tfstate-bucket"
+artifact_bucket_name = "claro-artifact-store-aws-demo-bucket"
+aws_local_profile = "aws-demo"
 aws_region = "us-east-1"
 tags = {
   ambiente        = "dev"
