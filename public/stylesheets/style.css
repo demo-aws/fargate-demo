@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Roboto", Arial, sans-serif;
 }
 
@@ -44,4 +44,27 @@ form button:hover {
 .success {
   background: #80cca0;
   padding: 5px;
+}
+
+header {
+    height: 360px;
+    z-index: 10;
+}
+.header-banner {
+    background-color: #333;
+    background-image: url("/images/claro_devops_team.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+}
+
+header h1 {
+    background-color: rgba(18,72,120, 0.8);
+    color: #fff;
+    padding: 0 1rem;
+    text-align: center;
+    top: 2rem; 
+    left: 2rem;
 }
