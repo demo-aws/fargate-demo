@@ -8,11 +8,11 @@ phases:
       - npm install
 artifacts:
   files:
-    - '*/**'
-    - Dockerfile
-    - app.js
-    - buildspec.yml
-    - package.json
+    - '**/*'
+    #- Dockerfile
+    #- app.js
+    #- buildspec.yml
+    #- package.json
   #base-directory: consultaloja
   #discard-paths: yes
 ...
