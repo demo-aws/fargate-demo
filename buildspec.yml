@@ -15,6 +15,7 @@ phases:
       - docker build -t ${IMAGE_URI} .
   post_build:
     commands:
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - docker push ${IMAGE_URI}:latest
       - echo Writing image definitions file...
       - printf '[{"name":"%s", "imageUri":"%s"}]' $SERVICE_NAME $IMAGE_URI:$TAG > $IMAGE_DEFINITIONS
