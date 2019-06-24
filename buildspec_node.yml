@@ -1,14 +1,14 @@
 ---
 version: 0.2
 
-phases: 
-  build: 
+phases:
+  build:
     commands:
       - echo Build started on `date`
       - npm install
 artifacts:
-  files: 
-    - */**
+  files:
+    - '*/**'
   #base-directory: consultaloja
   #discard-paths: yes
 ...
