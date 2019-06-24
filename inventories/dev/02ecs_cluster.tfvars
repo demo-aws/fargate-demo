@@ -1,6 +1,6 @@
 aws_region = "us-east-1"
 project_name = "aws-demo"
-aws_account_id = "578658211177"
+aws_account_id = "796157831759"
 artifact_store = "claro-artifact-store-aws-demo-bucket"
 app_port = "3000"
 env = "dev"
