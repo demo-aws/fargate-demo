@@ -10,7 +10,7 @@ priority = "1"
 command = "npm start"
 # Get after network infra created
 aws_region = "us-east-1"
-aws_account_id = "578658211177"
+aws_account_id = "796157831759"
 artifact_store = "claro-artifact-store-aws-demo-bucket"
 artifact_name = "dev-aws-demo-node.zip"
 tags = {
