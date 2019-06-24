@@ -6,19 +6,9 @@ phases:
     commands:
       - echo Build started on `date`
       - npm install
-  post_build: 
-    commands:
-      - echo Build completed on `date`
-      - apt update && apt install tar -y
-      - ls -la
-      - tar -zcf aws-demo.tar.gz .
-      #- cd ../$NODE_PATH && NODE_NAME=$(ls -l *.js | awk '{ print $9 }')
-      #- echo $NODE_NAME
 artifacts:
   files: 
-    - aws-demo.tar.gz
-    - Dockerfile
-    - buildspec.yml
+    - */**
   #base-directory: consultaloja
   #discard-paths: yes
 ...
