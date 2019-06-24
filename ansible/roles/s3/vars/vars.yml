@@ -1,5 +1,0 @@
-# aws_s3_bucket_region: us-east-1
-# aws_s3_bucket_name: claro-artifact-store
-# aws_s3_artifact_path: /Users/rmiazaki
-
-# artifact_name: artifacts.zip

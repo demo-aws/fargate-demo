@@ -66,6 +66,7 @@ module "ecs_service_node" {
   alb_name             = "${data.terraform_remote_state.ecs_cluster.alb_name}"
   target_group_name    = "${data.terraform_remote_state.ecs_cluster.alb_target_group_arn_suffix}"
   ecs_sg_id            = "${data.terraform_remote_state.ecs_cluster.ecs_cluster_sg_id}"
+  alb_dns_name    = "${data.terraform_remote_state.ecs_cluster.ecs_cluster_alb_dns_name}"
 
   listener_arn = "${data.terraform_remote_state.ecs_cluster.alb_listener_arn}"
   cluster_arn  = "${data.terraform_remote_state.ecs_cluster.ecs_cluster_arn}"
@@ -76,5 +77,6 @@ module "ecs_service_node" {
   domain          = "${var.domain}"
   zone_id         = "${var.zone_id}"
 
-  alb_dns_name    = "${data.terraform_remote_state.ecs_cluster.ecs_cluster_alb_dns_name}"
+  github_owner = "${var.github_owner}"
+  github_branch = "${var.github_branch}"
 }

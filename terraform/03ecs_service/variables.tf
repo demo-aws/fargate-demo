@@ -25,4 +25,5 @@ variable "github_repo" {}
 variable "github_token" {}
 variable "domain" {}
 variable "zone_id" {}
-
+variable "github_owner" {}
+variable "github_branch" {}

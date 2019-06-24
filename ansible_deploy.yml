@@ -1,0 +1,72 @@
+---
+- hosts: localhost
+  connection: local
+  vars_files:
+    - inventories/{{ env }}/{{ env }}.yml
+  tasks:
+  - name: Create backend resources
+    terraform:
+      project_path: "terraform/00backend_config"
+      state: "{{ tf_state }}"
+      force_init: true
+      variables_file: ../../inventories/{{ env }}/00backend_config.tfvars
+    register: tf_run
+    tags: backend
+  - debug: var=tf_run.stdout_lines
+
+  - name: Create network resources
+    terraform:
+      project_path: "terraform/01network"
+      state: "{{ tf_state }}"
+      force_init: true
+      variables_file: ../../inventories/{{ env }}/01network.tfvars
+      workspace: "network"
+      backend_config:
+        region: "{{ aws_region }}"
+        bucket: "{{ tf_state_bucket }}"
+        key: "{{ env }}.tfstate"
+        profile: "{{ aws_local_profile }}"
+        dynamodb_table: "{{ aws_tf_lock_dynamodb_table }}"
+        workspace_key_prefix: "{{ env }}"
+    register: tf_run
+    tags: network
+  - debug: var=tf_run.stdout_lines
+
+  - name: Create cluster resources
+    terraform:
+      project_path: "terraform/02ecs_cluster"
+      state: "{{ tf_state }}"
+      force_init: true
+      variables_file: ../../inventories/{{ env }}/02ecs_cluster.tfvars
+      workspace: "ecs_cluster"
+      backend_config:
+        region: "{{ aws_region }}"
+        bucket: "{{ tf_state_bucket }}"
+        key: "{{ env }}.tfstate"
+        profile: "{{ aws_local_profile }}"
+        dynamodb_table: "{{ aws_tf_lock_dynamodb_table }}"
+        workspace_key_prefix: "{{ env }}"
+    register: tf_run
+    tags: ecs_cluster
+  - debug: var=tf_run.stdout_lines
+
+  - name: Create ecs_service resources
+    terraform:
+      project_path: "terraform/03ecs_service"
+      state: "{{ tf_state }}"
+      force_init: true
+      variables_file: ../../inventories/{{ env }}/03ecs_service_node.tfvars
+      workspace: "ecs_service_node"
+      backend_config:
+        region: "{{ aws_region }}"
+        bucket: "{{ tf_state_bucket }}"
+        key: "{{ env }}.tfstate"
+        profile: "{{ aws_local_profile }}"
+        dynamodb_table: "{{ aws_tf_lock_dynamodb_table }}"
+        workspace_key_prefix: "{{ env }}"
+    register: tf_run
+    tags: ecs_service_node
+  - debug: var=tf_run.stdout_lines
+...
+
+

@@ -37,7 +37,10 @@ node_path = "/app"
 # backend config
 aws_local_profile = "aws-demo"
 
-github_token = "1f33850611694afdd67746c69689a08abea98000"
+github_branch = "master"
+github_owner = "aws-demo"
+github_token = "8671a265a98d1013881544aa04e8a257d50737d6"
 github_repo = "https://github.com/demo-aws/fargate-demo.git"
+
 domain = "darwinizando.com.br"
 zone_id = "Z27WPZ5LRGYXF2"
