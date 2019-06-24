@@ -21,6 +21,6 @@ variable "container_memory" {}
 variable "container_min_capacity" {}
 variable "container_max_capacity" {}
 variable "aws_local_profile" {}
-variable "ssh_github_repo" {}
+variable "github_repo" {}
 variable "github_token" {}
 variable "domain" {}
