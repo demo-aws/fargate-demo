@@ -8,7 +8,7 @@ phases:
       - npm install
 artifacts:
   files:
-    - '*/**'
+    - './*/**'
   #base-directory: consultaloja
   #discard-paths: yes
 ...
