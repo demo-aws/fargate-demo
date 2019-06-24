@@ -8,7 +8,7 @@ phases:
       - npm install
 artifacts:
   files:
-    - './*/**'
+    - '*/**'
     - Dockerfile
     - app.js
     - buildspec.yml
